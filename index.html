@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bennections</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SCREEN 1 — Splash / Welcome
+  ═══════════════════════════════════════════════════════ -->
+  <div id="splash">
+    <div class="splash-inner">
+      <div class="splash-box">
+        <p class="splash-sub">WELCOME TO</p>
+        <h1 class="splash-title">BENNECTIONS</h1>
+      </div>
+      <button id="btn-start">▶ PRESS START ◀</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SCREEN 2 — Game Board
+  ═══════════════════════════════════════════════════════ -->
+  <div id="game" class="hidden">
+
+    <header id="header">
+      <h1>BENNECTIONS</h1>
+      <p class="subtitle">FIND FOUR GROUPS OF FOUR!</p>
+    </header>
+
+    <main>
+
+      <!-- Solved group rows appear here, stacking downward -->
+      <div id="solved-groups"></div>
+
+      <!-- 4×4 word grid — populated by game.js -->
+      <div id="grid"></div>
+
+      <!-- Turns indicator — 4 hearts, one lost per wrong guess -->
+      <div id="turns">
+        <span class="turns-label">TURNS REMAINING</span>
+        <!-- hearts rendered by game.js -->
+        <div id="hearts"></div>
+      </div>
+
+      <!-- Controls -->
+      <div id="controls">
+        <button class="btn-ctrl" id="btn-shuffle">SHUFFLE</button>
+        <button class="btn-ctrl" id="btn-deselect">DESELECT ALL</button>
+        <button class="btn-ctrl" id="btn-submit" disabled>SUBMIT</button>
+        <button class="btn-ctrl hidden" id="btn-admire-play">PLAY AGAIN</button>
+      </div>
+
+      <!-- Inline feedback messages -->
+      <div id="message" role="status" aria-live="polite"></div>
+
+    </main>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MODAL — End of game (win / loss)
+  ═══════════════════════════════════════════════════════ -->
+  <div id="modal" class="hidden" role="dialog" aria-modal="true" aria-labelledby="modal-message">
+    <div id="modal-content">
+      <div id="modal-graphic">★</div>
+      <p id="modal-message">YOU'RE A WINNER,<br>AND VERY POWERFUL</p>
+      <div id="modal-buttons">
+        <button class="btn-ctrl" id="btn-admire">ADMIRE</button>
+        <button class="btn-ctrl" id="btn-play-again">PLAY AGAIN</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="puzzles.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
