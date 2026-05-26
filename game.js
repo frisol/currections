@@ -53,15 +53,7 @@ function sortedKey(words) {
 // ── Puzzle selection ───────────────────────────────────────────────────────
 
 function pickPuzzle() {
-  let available = PUZZLES.filter(function (p) {
-    return state.playedIds.indexOf(p.id) === -1;
-  });
-  if (available.length === 0) {
-    // All 20 played — reset and allow repeats from full set
-    state.playedIds = [];
-    available = PUZZLES.slice();
-  }
-  return available[Math.floor(Math.random() * available.length)];
+  return PUZZLES[0];
 }
 
 // ── Game initialisation ────────────────────────────────────────────────────
